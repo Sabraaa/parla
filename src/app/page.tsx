@@ -1,15 +1,19 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import ServicesPreview from "@/components/ServicesPreview";
 import WhyParla from "@/components/WhyParla";
+import ContactCTA from "@/components/ContactCTA";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden bg-white">
       <Navbar />
       <Hero />
-      <Services />
+      <ServicesPreview />
       <WhyParla />
+      <ContactCTA />
+      <Footer />
     </main>
   );
 }
