@@ -16,13 +16,40 @@ export default function KontaktPage() {
             </p>
           </div>
 
-          <form className="rounded-[32px] border border-[#D6EEF4] bg-[#F5FBFD] p-6 sm:p-8">
+          <form
+            action="mailto:info@parla-gruppe.de?subject=Kontaktanfrage"
+            method="post"
+            encType="text/plain"
+            className="rounded-[32px] border border-[#D6EEF4] bg-[#F5FBFD] p-6 sm:p-8"
+          >
             <div className="grid gap-5">
-              <input placeholder="Name" className="rounded-2xl border border-[#D6EEF4] px-5 py-4" />
-              <input placeholder="E-Mail-Adresse" className="rounded-2xl border border-[#D6EEF4] px-5 py-4" />
-              <input placeholder="Telefonnummer" className="rounded-2xl border border-[#D6EEF4] px-5 py-4" />
-              <textarea placeholder="Ihre Nachricht" rows={5} className="resize-none rounded-2xl border border-[#D6EEF4] px-5 py-4" />
-              <button type="button" className="rounded-full bg-[#087EA4] px-8 py-4 font-bold text-white">
+              <input
+                name="Name"
+                placeholder="Name"
+                required
+                className="rounded-2xl border border-[#D6EEF4] px-5 py-4"
+              />
+              <input
+                type="email"
+                name="E-Mail"
+                placeholder="E-Mail-Adresse"
+                required
+                className="rounded-2xl border border-[#D6EEF4] px-5 py-4"
+              />
+              <input
+                type="tel"
+                name="Telefon"
+                placeholder="Telefonnummer"
+                className="rounded-2xl border border-[#D6EEF4] px-5 py-4"
+              />
+              <textarea
+                name="Nachricht"
+                placeholder="Ihre Nachricht"
+                rows={5}
+                required
+                className="resize-none rounded-2xl border border-[#D6EEF4] px-5 py-4"
+              />
+              <button type="submit" className="rounded-full bg-[#087EA4] px-8 py-4 font-bold text-white">
                 Anfrage absenden
               </button>
             </div>

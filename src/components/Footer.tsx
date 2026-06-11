@@ -59,11 +59,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-[#D6EEF4] pt-6 text-sm text-[#062033]/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2025 PARLA GRUPPE Gebäudeservice. Alle Rechte vorbehalten.</p>
+          <p>© 2026 PARLA GRUPPE Gebäudeservice. Alle Rechte vorbehalten.</p>
 
           <div className="flex gap-6">
-            <Link href="#">Impressum</Link>
-            <Link href="#">Datenschutz</Link>
+            <Link href="/impressum">Impressum</Link>
+            <Link href="/datenschutz">Datenschutz</Link>
           </div>
         </div>
       </div>
