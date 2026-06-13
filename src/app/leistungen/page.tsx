@@ -1,12 +1,21 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Leistungen | PARLA GRUPPE Gebäudeservice",
+  },
+  description:
+    "Alle Leistungen der PARLA GRUPPE: Gebäudereinigung, Hausmeisterservice, Entrümpelung und Umzugsservice in Dormagen, Köln, Düsseldorf und Umgebung.",
+};
 
 const services = [
   {
     title: "Gebäudereinigung",
     description:
-      "Gründliche Reinigung für Wohn- und Gewerbeimmobilien, Treppenhäuser, Büros, Praxen und Glasflächen.",
+      "Professionelle Reinigung für Treppenhäuser, Büros, Praxen, Glasflächen und Wohn- oder Gewerbeimmobilien.",
     href: "/leistungen/gebaeudereinigung",
   },
   {
@@ -18,65 +27,70 @@ const services = [
   {
     title: "Entrümpelung",
     description:
-      "Fachgerechte Räumung von Wohnungen, Häusern, Kellern und Gewerbeflächen inklusive Entsorgung.",
+      "Schnelle und diskrete Räumung von Wohnungen, Kellern, Häusern und Gewerbeflächen inklusive Entsorgung.",
     href: "/leistungen/entruempelung",
   },
   {
     title: "Umzugsservice",
     description:
-      "Sorgfältig geplanter Transport für private und gewerbliche Umzüge mit tatkräftiger Unterstützung.",
+      "Sorgfältig geplanter Umzugs- und Transportservice für private und gewerbliche Kunden.",
     href: "/leistungen/umzugsservice",
   },
 ];
 
 export default function LeistungenPage() {
   return (
-    <main className="min-h-screen bg-[#F5FBFD] text-[#052B48]">
+    <main className="min-h-screen overflow-x-hidden bg-[#F5FBFD] text-[#052B48]">
       <Navbar />
 
-      <section className="px-4 pt-28 pb-16 sm:px-6 lg:pt-32">
+      <section className="px-4 pt-24 pb-14 sm:px-6 sm:pt-32 sm:pb-20">
         <div className="mx-auto max-w-6xl">
-          <div className="rounded-[32px] border border-[#D6EEF4] bg-white p-6 shadow-[0_18px_45px_rgba(5,43,72,0.06)] sm:p-10">
-            <p className="mb-3 text-xs font-black uppercase tracking-[0.25em] text-[#087EA4]">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mx-auto w-fit rounded-full border border-[#D6EEF4] bg-white px-4 py-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#087EA4]">
               Unsere Leistungen
             </p>
 
-            <h1 className="text-4xl font-black leading-tight text-[#052B48] sm:text-6xl">
+            <h1 className="mt-5 text-[32px] font-black leading-tight tracking-tight text-[#052B48] sm:text-5xl">
               Gebäudeservice aus einer Hand
             </h1>
 
-            <p className="mt-6 max-w-4xl text-base leading-8 text-[#24465C] sm:text-lg">
-              PARLA GRUPPE unterstützt Unternehmen, Hausverwaltungen und private
-              Kunden in Dormagen, Köln, Düsseldorf und Umgebung mit sauber
-              organisierten Dienstleistungen.
+            <p className="mt-4 text-base leading-7 text-[#506878] sm:text-lg">
+              PARLA GRUPPE unterstützt private und gewerbliche Kunden in
+              Dormagen, Köln, Düsseldorf und Umgebung mit zuverlässigen,
+              sauberen und flexibel planbaren Dienstleistungen.
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
-            {services.map((service) => (
-              <article
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:gap-6">
+            {services.map((service, index) => (
+              <Link
                 key={service.title}
-                className="rounded-[30px] border border-[#D6EEF4] bg-white p-6 shadow-[0_14px_35px_rgba(5,43,72,0.05)] sm:p-8"
+                href={service.href}
+                className="group rounded-[28px] border border-[#D6EEF4] bg-white p-5 shadow-[0_14px_35px_rgba(5,43,72,0.06)] transition hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(5,43,72,0.1)] sm:p-7"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#EAF8FB] text-[#087EA4]">
-                  ✦
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#EAF8FB] text-lg font-black text-[#087EA4]">
+                    {index + 1}
+                  </div>
+
+                  <div>
+                    <h2 className="text-xl font-black text-[#052B48] sm:text-2xl">
+                      {service.title}
+                    </h2>
+
+                    <p className="mt-3 text-sm leading-7 text-[#506878]">
+                      {service.description}
+                    </p>
+
+                    <span className="mt-5 inline-flex items-center text-sm font-black text-[#087EA4]">
+                      Mehr erfahren
+                      <span className="ml-2 transition group-hover:translate-x-1">
+                        →
+                      </span>
+                    </span>
+                  </div>
                 </div>
-
-                <h2 className="text-2xl font-black text-[#052B48]">
-                  {service.title}
-                </h2>
-
-                <p className="mt-4 leading-8 text-[#24465C]">
-                  {service.description}
-                </p>
-
-                <Link
-                  href={service.href}
-                  className="mt-6 inline-block rounded-full bg-[#087EA4] px-6 py-3 text-sm font-black text-white shadow-[0_12px_30px_rgba(8,126,164,0.22)]"
-                >
-                  Mehr erfahren
-                </Link>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
